@@ -5,7 +5,9 @@ defmodule EazipWeb.Router do
     plug :accepts, ["json"]
   end
 
-  scope "/api", EazipWeb do
+  scope "/", EazipWeb do
     pipe_through :api
+
+    get "/", HelloController, :index
   end
 end
