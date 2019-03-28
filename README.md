@@ -3,6 +3,7 @@
 To start your Phoenix server:
 
   * Install dependencies with `mix deps.get`
+  * Instanciate a PostgreSQL service with `docker-compose up -d`
   * Create and migrate your database with `mix ecto.setup`
   * Start Phoenix endpoint with `mix phx.server`
 
