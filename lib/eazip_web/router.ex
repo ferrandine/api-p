@@ -9,5 +9,6 @@ defmodule EazipWeb.Router do
     pipe_through :api
 
     get "/", HelloController, :index
+    resources "/users", UserController
   end
 end
