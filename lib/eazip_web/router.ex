@@ -8,7 +8,6 @@ defmodule EazipWeb.Router do
   scope "/", EazipWeb do
     pipe_through :api
 
-    get "/", HelloController, :index
     resources "/users", UserController, except: [:new, :edit]
     resources "/clothes", ClotheController, except: [:new, :edit]
     resources "/alterations", AlterationController, except: [:new, :edit]
