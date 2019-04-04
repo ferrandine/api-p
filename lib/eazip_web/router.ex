@@ -10,5 +10,6 @@ defmodule EazipWeb.Router do
 
     get "/", HelloController, :index
     resources "/users", UserController
+    resources "/clothes", ClotheController
   end
 end
