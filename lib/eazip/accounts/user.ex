@@ -1,12 +1,12 @@
 defmodule Eazip.Accounts.User do
   use Ecto.Schema
   import Ecto.Changeset
-  alias Eazip.Accounts.Credential
 
   schema "users" do
-    field :name, :string
-    field :username, :string
-    has_one :credential, Credential
+    field :birthdate, :date
+    field :first_name, :string
+    field :last_name, :string
+    field :sex, :integer
 
     timestamps()
   end
@@ -14,8 +14,7 @@ defmodule Eazip.Accounts.User do
   @doc false
   def changeset(user, attrs) do
     user
-    |> cast(attrs, [:name, :username])
-    |> validate_required([:name, :username])
-    |> unique_constraint(:username)
+    |> cast(attrs, [:first_name, :last_name, :sex, :birthdate])
+    |> validate_required([:first_name, :last_name, :sex, :birthdate])
   end
 end

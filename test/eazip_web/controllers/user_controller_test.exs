@@ -5,14 +5,18 @@ defmodule EazipWeb.UserControllerTest do
   alias Eazip.Accounts.User
 
   @create_attrs %{
-    name: "some name",
-    username: "some username"
+    birthdate: ~D[2010-04-17],
+    first_name: "some first_name",
+    last_name: "some last_name",
+    sex: 42
   }
   @update_attrs %{
-    name: "some updated name",
-    username: "some updated username"
+    birthdate: ~D[2011-05-18],
+    first_name: "some updated first_name",
+    last_name: "some updated last_name",
+    sex: 43
   }
-  @invalid_attrs %{name: nil, username: nil}
+  @invalid_attrs %{birthdate: nil, first_name: nil, last_name: nil, sex: nil}
 
   def fixture(:user) do
     {:ok, user} = Accounts.create_user(@create_attrs)
@@ -39,8 +43,10 @@ defmodule EazipWeb.UserControllerTest do
 
       assert %{
                "id" => id,
-               "name" => "some name",
-               "username" => "some username"
+               "birthdate" => "2010-04-17",
+               "first_name" => "some first_name",
+               "last_name" => "some last_name",
+               "sex" => 42
              } = json_response(conn, 200)["data"]
     end
 
@@ -61,8 +67,10 @@ defmodule EazipWeb.UserControllerTest do
 
       assert %{
                "id" => id,
-               "name" => "some updated name",
-               "username" => "some updated username"
+               "birthdate" => "2011-05-18",
+               "first_name" => "some updated first_name",
+               "last_name" => "some updated last_name",
+               "sex" => 43
              } = json_response(conn, 200)["data"]
     end
 

@@ -6,9 +6,9 @@ defmodule Eazip.AccountsTest do
   describe "users" do
     alias Eazip.Accounts.User
 
-    @valid_attrs %{name: "some name", username: "some username", credential: nil }
-    @update_attrs %{name: "some updated name", username: "some updated username"}
-    @invalid_attrs %{name: nil, username: nil}
+    @valid_attrs %{birthdate: ~D[2010-04-17], first_name: "some first_name", last_name: "some last_name", sex: 42}
+    @update_attrs %{birthdate: ~D[2011-05-18], first_name: "some updated first_name", last_name: "some updated last_name", sex: 43}
+    @invalid_attrs %{birthdate: nil, first_name: nil, last_name: nil, sex: nil}
 
     def user_fixture(attrs \\ %{}) do
       {:ok, user} =
@@ -31,8 +31,10 @@ defmodule Eazip.AccountsTest do
 
     test "create_user/1 with valid data creates a user" do
       assert {:ok, %User{} = user} = Accounts.create_user(@valid_attrs)
-      assert user.name == "some name"
-      assert user.username == "some username"
+      assert user.birthdate == ~D[2010-04-17]
+      assert user.first_name == "some first_name"
+      assert user.last_name == "some last_name"
+      assert user.sex == 42
     end
 
     test "create_user/1 with invalid data returns error changeset" do
@@ -42,8 +44,10 @@ defmodule Eazip.AccountsTest do
     test "update_user/2 with valid data updates the user" do
       user = user_fixture()
       assert {:ok, %User{} = user} = Accounts.update_user(user, @update_attrs)
-      assert user.name == "some updated name"
-      assert user.username == "some updated username"
+      assert user.birthdate == ~D[2011-05-18]
+      assert user.first_name == "some updated first_name"
+      assert user.last_name == "some updated last_name"
+      assert user.sex == 43
     end
 
     test "update_user/2 with invalid data returns error changeset" do

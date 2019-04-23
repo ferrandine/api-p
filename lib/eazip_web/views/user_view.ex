@@ -12,7 +12,9 @@ defmodule EazipWeb.UserView do
 
   def render("user.json", %{user: user}) do
     %{id: user.id,
-      name: user.name,
-      username: user.username}
+      first_name: user.first_name,
+      last_name: user.last_name,
+      sex: user.sex,
+      birthdate: user.birthdate}
   end
 end

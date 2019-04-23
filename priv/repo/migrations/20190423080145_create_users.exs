@@ -3,12 +3,13 @@ defmodule Eazip.Repo.Migrations.CreateUsers do
 
   def change do
     create table(:users) do
-      add :name, :string
-      add :username, :string
+      add :first_name, :string
+      add :last_name, :string
+      add :sex, :integer
+      add :birthdate, :date
 
       timestamps()
     end
 
-    create unique_index(:users, [:username])
   end
 end
