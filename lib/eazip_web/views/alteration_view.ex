@@ -11,9 +11,11 @@ defmodule EazipWeb.AlterationView do
   end
 
   def render("alteration.json", %{alteration: alteration}) do
-    %{id: alteration.id,
+    %{
+      id: alteration.id,
       type: alteration.type,
       description: alteration.description,
-      image: alteration.image}
+      image: alteration.image
+    }
   end
 end

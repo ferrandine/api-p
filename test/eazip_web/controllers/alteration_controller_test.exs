@@ -56,8 +56,13 @@ defmodule EazipWeb.AlterationControllerTest do
   describe "update alteration" do
     setup [:create_alteration]
 
-    test "renders alteration when data is valid", %{conn: conn, alteration: %Alteration{id: id} = alteration} do
-      conn = put(conn, Routes.alteration_path(conn, :update, alteration), alteration: @update_attrs)
+    test "renders alteration when data is valid", %{
+      conn: conn,
+      alteration: %Alteration{id: id} = alteration
+    } do
+      conn =
+        put(conn, Routes.alteration_path(conn, :update, alteration), alteration: @update_attrs)
+
       assert %{"id" => ^id} = json_response(conn, 200)["data"]
 
       conn = get(conn, Routes.alteration_path(conn, :show, id))
@@ -71,7 +76,9 @@ defmodule EazipWeb.AlterationControllerTest do
     end
 
     test "renders errors when data is invalid", %{conn: conn, alteration: alteration} do
-      conn = put(conn, Routes.alteration_path(conn, :update, alteration), alteration: @invalid_attrs)
+      conn =
+        put(conn, Routes.alteration_path(conn, :update, alteration), alteration: @invalid_attrs)
+
       assert json_response(conn, 422)["errors"] != %{}
     end
   end

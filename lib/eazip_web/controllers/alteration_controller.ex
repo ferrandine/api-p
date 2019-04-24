@@ -28,7 +28,8 @@ defmodule EazipWeb.AlterationController do
   def update(conn, %{"id" => id, "alteration" => alteration_params}) do
     alteration = Alterations.get_alteration!(id)
 
-    with {:ok, %Alteration{} = alteration} <- Alterations.update_alteration(alteration, alteration_params) do
+    with {:ok, %Alteration{} = alteration} <-
+           Alterations.update_alteration(alteration, alteration_params) do
       render(conn, "show.json", alteration: alteration)
     end
   end

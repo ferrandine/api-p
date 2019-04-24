@@ -6,8 +6,22 @@ defmodule Eazip.AccountsTest do
   describe "users" do
     alias Eazip.Accounts.User
 
-    @valid_attrs %{birthdate: ~D[2010-04-17], first_name: "some first_name", last_name: "some last_name", sex: 42}
-    @update_attrs %{birthdate: ~D[2011-05-18], first_name: "some updated first_name", last_name: "some updated last_name", sex: 43}
+    @valid_attrs %{
+      birthdate: ~D[2010-04-17],
+      first_name: "some first_name",
+      last_name: "some last_name",
+      sex: 42,
+      credential: %{
+        email: "jean",
+        password: "charles"
+      }
+    }
+    @update_attrs %{
+      birthdate: ~D[2011-05-18],
+      first_name: "some updated first_name",
+      last_name: "some updated last_name",
+      sex: 43
+    }
     @invalid_attrs %{birthdate: nil, first_name: nil, last_name: nil, sex: nil}
 
     def user_fixture(attrs \\ %{}) do
@@ -67,4 +81,5 @@ defmodule Eazip.AccountsTest do
       assert %Ecto.Changeset{} = Accounts.change_user(user)
     end
   end
+
 end

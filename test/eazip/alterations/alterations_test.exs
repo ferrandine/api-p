@@ -7,7 +7,11 @@ defmodule Eazip.AlterationsTest do
     alias Eazip.Alterations.Alteration
 
     @valid_attrs %{description: "some description", image: "some image", type: "some type"}
-    @update_attrs %{description: "some updated description", image: "some updated image", type: "some updated type"}
+    @update_attrs %{
+      description: "some updated description",
+      image: "some updated image",
+      type: "some updated type"
+    }
     @invalid_attrs %{description: nil, image: nil, type: nil}
 
     def alteration_fixture(attrs \\ %{}) do
@@ -42,7 +46,10 @@ defmodule Eazip.AlterationsTest do
 
     test "update_alteration/2 with valid data updates the alteration" do
       alteration = alteration_fixture()
-      assert {:ok, %Alteration{} = alteration} = Alterations.update_alteration(alteration, @update_attrs)
+
+      assert {:ok, %Alteration{} = alteration} =
+               Alterations.update_alteration(alteration, @update_attrs)
+
       assert alteration.description == "some updated description"
       assert alteration.image == "some updated image"
       assert alteration.type == "some updated type"
@@ -50,7 +57,10 @@ defmodule Eazip.AlterationsTest do
 
     test "update_alteration/2 with invalid data returns error changeset" do
       alteration = alteration_fixture()
-      assert {:error, %Ecto.Changeset{}} = Alterations.update_alteration(alteration, @invalid_attrs)
+
+      assert {:error, %Ecto.Changeset{}} =
+               Alterations.update_alteration(alteration, @invalid_attrs)
+
       assert alteration == Alterations.get_alteration!(alteration.id)
     end
 
