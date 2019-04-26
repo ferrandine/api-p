@@ -1,4 +1,4 @@
-# Eazip
+# Ferrandine
 
 To start your Phoenix server:
 
