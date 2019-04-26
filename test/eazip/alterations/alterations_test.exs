@@ -75,4 +75,63 @@ defmodule Eazip.AlterationsTest do
       assert %Ecto.Changeset{} = Alterations.change_alteration(alteration)
     end
   end
+
+  describe "alteration_categories" do
+    alias Eazip.Alterations.AlterationCategory
+
+    @valid_attrs %{type: "some type"}
+    @update_attrs %{type: "some updated type"}
+    @invalid_attrs %{type: nil}
+
+    def alteration_category_fixture(attrs \\ %{}) do
+      {:ok, alteration_category} =
+        attrs
+        |> Enum.into(@valid_attrs)
+        |> Alterations.create_alteration_category()
+
+      alteration_category
+    end
+
+    test "list_alteration_categories/0 returns all alteration_categories" do
+      alteration_category = alteration_category_fixture()
+      assert Alterations.list_alteration_categories() == [alteration_category]
+    end
+
+    test "get_alteration_category!/1 returns the alteration_category with given id" do
+      alteration_category = alteration_category_fixture()
+      assert Alterations.get_alteration_category!(alteration_category.id) == alteration_category
+    end
+
+    test "create_alteration_category/1 with valid data creates a alteration_category" do
+      assert {:ok, %AlterationCategory{} = alteration_category} = Alterations.create_alteration_category(@valid_attrs)
+      assert alteration_category.type == "some type"
+    end
+
+    test "create_alteration_category/1 with invalid data returns error changeset" do
+      assert {:error, %Ecto.Changeset{}} = Alterations.create_alteration_category(@invalid_attrs)
+    end
+
+    test "update_alteration_category/2 with valid data updates the alteration_category" do
+      alteration_category = alteration_category_fixture()
+      assert {:ok, %AlterationCategory{} = alteration_category} = Alterations.update_alteration_category(alteration_category, @update_attrs)
+      assert alteration_category.type == "some updated type"
+    end
+
+    test "update_alteration_category/2 with invalid data returns error changeset" do
+      alteration_category = alteration_category_fixture()
+      assert {:error, %Ecto.Changeset{}} = Alterations.update_alteration_category(alteration_category, @invalid_attrs)
+      assert alteration_category == Alterations.get_alteration_category!(alteration_category.id)
+    end
+
+    test "delete_alteration_category/1 deletes the alteration_category" do
+      alteration_category = alteration_category_fixture()
+      assert {:ok, %AlterationCategory{}} = Alterations.delete_alteration_category(alteration_category)
+      assert_raise Ecto.NoResultsError, fn -> Alterations.get_alteration_category!(alteration_category.id) end
+    end
+
+    test "change_alteration_category/1 returns a alteration_category changeset" do
+      alteration_category = alteration_category_fixture()
+      assert %Ecto.Changeset{} = Alterations.change_alteration_category(alteration_category)
+    end
+  end
 end
