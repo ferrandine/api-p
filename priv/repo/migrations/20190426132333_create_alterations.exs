@@ -6,10 +6,11 @@ defmodule Eazip.Repo.Migrations.CreateAlterations do
       add :type, :string
       add :description, :text
       add :image, :string
+      add :category_id, references(:alteration_categories, on_delete: :delete_all), null: false
 
       timestamps()
     end
 
-    create unique_index(:alterations, [:type])
+    create unique_index(:alterations, [:category_id, :type])
   end
 end
