@@ -7,7 +7,7 @@ defmodule Eazip.Alterations.Alteration do
     field :description, :string
     field :image, :string
     field :type, :string
-    belongs_to :alteration_category, AlterationCategory
+    belongs_to :alteration_category, AlterationCategory, foreign_key: :category_id
 
     timestamps()
   end
@@ -17,6 +17,6 @@ defmodule Eazip.Alterations.Alteration do
     alteration
     |> cast(attrs, [:type, :description, :image])
     |> validate_required([:type, :description, :image])
-    |> unique_constraint(:type)
+    |> unique_constraint(:type, name: :alteration_category_id_type_index)
   end
 end

@@ -5,7 +5,7 @@ defmodule Eazip.Alterations.AlterationCategory do
 
   schema "alteration_categories" do
     field :type, :string
-    has_many :alterations, Alteration
+    has_many :alterations, Alteration, foreign_key: :category_id
 
     timestamps()
   end
