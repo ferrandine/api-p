@@ -9,3 +9,45 @@
 #
 # We recommend using the bang functions (`insert!`, `update!`
 # and so on) as they will fail if something goes wrong.
+alias Eazip.Repo
+alias Eazip.Clothes.Clothe
+
+Repo.insert!(%Clothe{
+  type: "dress",
+  image: ""
+})
+
+Repo.insert!(%Clothe{
+  type: "trouser",
+  image: ""
+})
+
+Repo.insert!(%Clothe{
+  type: "t-shirt",
+  image: ""
+})
+
+Repo.insert!(%Clothe{
+  type: "skirt",
+  image: ""
+})
+
+Repo.insert!(%Clothe{
+  type: "shirt",
+  image: ""
+})
+
+Repo.insert!(%Clothe{
+  type: "pullover",
+  image: ""
+})
+
+Repo.insert!(%Clothe{
+  type: "blazer",
+  image: ""
+})
+
+Repo.insert!(%Clothe{
+  type: "coat",
+  image: ""
+})

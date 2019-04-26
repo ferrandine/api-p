@@ -81,5 +81,4 @@ defmodule Eazip.AccountsTest do
       assert %Ecto.Changeset{} = Accounts.change_user(user)
     end
   end
-
 end
