@@ -12,10 +12,11 @@
 alias Eazip.Repo
 alias Eazip.Clothes.Clothe
 alias Eazip.Alterations.{Alteration, AlterationCategory}
+alias Eazip.Services.Service
 
 # Clothes
 
-Repo.insert!(%Clothe{
+clothe_dress = Repo.insert!(%Clothe{
   type: "dress",
   image: ""
 })
@@ -68,7 +69,7 @@ Repo.insert!(%AlterationCategory{
 
 # Alterations
 
-Repo.insert!(%Alteration{
+alteration_commons_hem = Repo.insert!(%Alteration{
   image: "",
   type: "hem",
   description: "hem description",
@@ -127,4 +128,12 @@ Repo.insert!(%Alteration{
   type: "bottom",
   description: "bottom description",
   category_id: alteration_category_extend.id 
+})
+
+# Services
+
+Repo.insert!(%Service{
+  clothe_id: clothe_dress.id,
+  alteration_id: alteration_commons_hem.id,
+  value_base: 15.00,
 })
