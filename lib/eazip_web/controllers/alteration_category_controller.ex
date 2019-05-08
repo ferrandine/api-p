@@ -12,10 +12,14 @@ defmodule EazipWeb.AlterationCategoryController do
   end
 
   def create(conn, %{"alteration_category" => alteration_category_params}) do
-    with {:ok, %AlterationCategory{} = alteration_category} <- Alterations.create_alteration_category(alteration_category_params) do
+    with {:ok, %AlterationCategory{} = alteration_category} <-
+           Alterations.create_alteration_category(alteration_category_params) do
       conn
       |> put_status(:created)
-      |> put_resp_header("location", Routes.alteration_category_path(conn, :show, alteration_category))
+      |> put_resp_header(
+        "location",
+        Routes.alteration_category_path(conn, :show, alteration_category)
+      )
       |> render("show.json", alteration_category: alteration_category)
     end
   end
@@ -28,7 +32,8 @@ defmodule EazipWeb.AlterationCategoryController do
   def update(conn, %{"id" => id, "alteration_category" => alteration_category_params}) do
     alteration_category = Alterations.get_alteration_category!(id)
 
-    with {:ok, %AlterationCategory{} = alteration_category} <- Alterations.update_alteration_category(alteration_category, alteration_category_params) do
+    with {:ok, %AlterationCategory{} = alteration_category} <-
+           Alterations.update_alteration_category(alteration_category, alteration_category_params) do
       render(conn, "show.json", alteration_category: alteration_category)
     end
   end
@@ -36,7 +41,8 @@ defmodule EazipWeb.AlterationCategoryController do
   def delete(conn, %{"id" => id}) do
     alteration_category = Alterations.get_alteration_category!(id)
 
-    with {:ok, %AlterationCategory{}} <- Alterations.delete_alteration_category(alteration_category) do
+    with {:ok, %AlterationCategory{}} <-
+           Alterations.delete_alteration_category(alteration_category) do
       send_resp(conn, :no_content, "")
     end
   end

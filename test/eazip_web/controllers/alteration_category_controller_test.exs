@@ -30,7 +30,11 @@ defmodule EazipWeb.AlterationCategoryControllerTest do
 
   describe "create alteration_category" do
     test "renders alteration_category when data is valid", %{conn: conn} do
-      conn = post(conn, Routes.alteration_category_path(conn, :create), alteration_category: @create_attrs)
+      conn =
+        post(conn, Routes.alteration_category_path(conn, :create),
+          alteration_category: @create_attrs
+        )
+
       assert %{"id" => id} = json_response(conn, 201)["data"]
 
       conn = get(conn, Routes.alteration_category_path(conn, :show, id))
@@ -42,7 +46,11 @@ defmodule EazipWeb.AlterationCategoryControllerTest do
     end
 
     test "renders errors when data is invalid", %{conn: conn} do
-      conn = post(conn, Routes.alteration_category_path(conn, :create), alteration_category: @invalid_attrs)
+      conn =
+        post(conn, Routes.alteration_category_path(conn, :create),
+          alteration_category: @invalid_attrs
+        )
+
       assert json_response(conn, 422)["errors"] != %{}
     end
   end
@@ -50,8 +58,15 @@ defmodule EazipWeb.AlterationCategoryControllerTest do
   describe "update alteration_category" do
     setup [:create_alteration_category]
 
-    test "renders alteration_category when data is valid", %{conn: conn, alteration_category: %AlterationCategory{id: id} = alteration_category} do
-      conn = put(conn, Routes.alteration_category_path(conn, :update, alteration_category), alteration_category: @update_attrs)
+    test "renders alteration_category when data is valid", %{
+      conn: conn,
+      alteration_category: %AlterationCategory{id: id} = alteration_category
+    } do
+      conn =
+        put(conn, Routes.alteration_category_path(conn, :update, alteration_category),
+          alteration_category: @update_attrs
+        )
+
       assert %{"id" => ^id} = json_response(conn, 200)["data"]
 
       conn = get(conn, Routes.alteration_category_path(conn, :show, id))
@@ -62,8 +77,15 @@ defmodule EazipWeb.AlterationCategoryControllerTest do
              } = json_response(conn, 200)["data"]
     end
 
-    test "renders errors when data is invalid", %{conn: conn, alteration_category: alteration_category} do
-      conn = put(conn, Routes.alteration_category_path(conn, :update, alteration_category), alteration_category: @invalid_attrs)
+    test "renders errors when data is invalid", %{
+      conn: conn,
+      alteration_category: alteration_category
+    } do
+      conn =
+        put(conn, Routes.alteration_category_path(conn, :update, alteration_category),
+          alteration_category: @invalid_attrs
+        )
+
       assert json_response(conn, 422)["errors"] != %{}
     end
   end
@@ -71,7 +93,10 @@ defmodule EazipWeb.AlterationCategoryControllerTest do
   describe "delete alteration_category" do
     setup [:create_alteration_category]
 
-    test "deletes chosen alteration_category", %{conn: conn, alteration_category: alteration_category} do
+    test "deletes chosen alteration_category", %{
+      conn: conn,
+      alteration_category: alteration_category
+    } do
       conn = delete(conn, Routes.alteration_category_path(conn, :delete, alteration_category))
       assert response(conn, 204)
 

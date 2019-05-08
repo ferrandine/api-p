@@ -14,10 +14,17 @@ defmodule EazipWeb.ServiceView do
   end
 
   def render("service.json", %{service: service}) do
-    %{id: service.id,
+    %{
+      id: service.id,
       value_base: service.value_base,
       clothe: render_one(service.clothe, ClotheView, "clothe.json"),
       alteration: render_one(service.alteration, AlterationView, "alteration.json"),
-      category: render_one(service.alteration.alteration_category, AlterationCategoryView, "alteration_category.json")}
+      category:
+        render_one(
+          service.alteration.alteration_category,
+          AlterationCategoryView,
+          "alteration_category.json"
+        )
+    }
   end
 end

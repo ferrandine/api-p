@@ -18,9 +18,9 @@ defmodule Eazip.Services do
 
   """
   def list_services do
-    Service 
-      |> Repo.all()
-      |> Repo.preload([:clothe, { :alteration, :alteration_category }])
+    Service
+    |> Repo.all()
+    |> Repo.preload([:clothe, {:alteration, :alteration_category}])
   end
 
   @doc """
@@ -38,9 +38,9 @@ defmodule Eazip.Services do
 
   """
   def get_service!(id) do
-    Service 
+    Service
     |> Repo.get!(id)
-    |> Repo.preload([:clothe, { :alteration, :alteration_category }])
+    |> Repo.preload([:clothe, {:alteration, :alteration_category}])
   end
 
   @doc """
