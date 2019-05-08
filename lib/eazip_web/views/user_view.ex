@@ -21,7 +21,7 @@ defmodule EazipWeb.UserView do
       city: user.city,
       post_code: user.post_code,
       street: user.street,
-      type: user.type,
+      type: user.type
     }
   end
 end

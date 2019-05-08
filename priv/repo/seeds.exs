@@ -14,75 +14,81 @@ alias Eazip.Clothes.Clothe
 alias Eazip.Alterations.{Alteration, AlterationCategory}
 alias Eazip.Services.Service
 alias Eazip.Accounts.{User, Credential}
+alias Eazip.Commands.Command
 
 # Users
 
-admin = Repo.insert!(%User{
-  first_name: "Sebastien",
-  last_name: "Baudray",
-  birthdate: ~D[2000-01-01],
-  sex: 1,
-  country: "FR",
-  city: "Paris",
-  post_code: "75000",
-  street: "",
-  type: 0,
-})
+admin =
+  Repo.insert!(%User{
+    first_name: "Sebastien",
+    last_name: "Baudray",
+    birthdate: ~D[2000-01-01],
+    sex: 1,
+    country: "FR",
+    city: "Paris",
+    post_code: "75000",
+    street: "",
+    type: 0
+  })
 
-quentin = Repo.insert!(%User{
-  first_name: "Quentin",
-  last_name: "Michalet",
-  birthdate: ~D[1995-01-12],
-  sex: 1,
-  country: "FR",
-  city: "Paris",
-  post_code: "75000",
-  street: "01 Bd du temple",
-  type: 1,
-})
+quentin =
+  Repo.insert!(%User{
+    first_name: "Quentin",
+    last_name: "Michalet",
+    birthdate: ~D[1995-01-12],
+    sex: 1,
+    country: "FR",
+    city: "Paris",
+    post_code: "75000",
+    street: "01 Bd du temple",
+    type: 1
+  })
 
-julien = Repo.insert!(%User{
-  first_name: "Julien",
-  last_name: "Furberg",
-  birthdate: ~D[1995-01-12],
-  sex: 1,
-  country: "FR",
-  city: "Paris",
-  post_code: "75000",
-  street: "02 rue de Rivoli",
-  type: 1,
-})
+julien =
+  Repo.insert!(%User{
+    first_name: "Julien",
+    last_name: "Furberg",
+    birthdate: ~D[1995-01-12],
+    sex: 1,
+    country: "FR",
+    city: "Paris",
+    post_code: "75000",
+    street: "02 rue de Rivoli",
+    type: 1
+  })
 
-marie = Repo.insert!(%User{
-  first_name: "Marie",
-  last_name: "Charles",
-  birthdate: ~D[1995-01-12],
-  sex: 2,
-  country: "FR",
-  city: "Paris",
-  post_code: "75000",
-  street: "03 rue Mouffetard",
-  type: 2,
-})
+marie =
+  Repo.insert!(%User{
+    first_name: "Marie",
+    last_name: "Charles",
+    birthdate: ~D[1995-01-12],
+    sex: 2,
+    country: "FR",
+    city: "Paris",
+    post_code: "75000",
+    street: "03 rue Mouffetard",
+    type: 2
+  })
 
-alison = Repo.insert!(%User{
-  first_name: "Alison",
-  last_name: "Sayarath",
-  birthdate: ~D[1995-01-12],
-  sex: 2,
-  country: "FR",
-  city: "Paris",
-  post_code: "75000",
-  street: "04 rue Royale",
-  type: 2,
-})
+alison =
+  Repo.insert!(%User{
+    first_name: "Alison",
+    last_name: "Sayarath",
+    birthdate: ~D[1995-01-12],
+    sex: 2,
+    country: "FR",
+    city: "Paris",
+    post_code: "75000",
+    street: "04 rue Royale",
+    type: 2
+  })
 
 # Credentials
 
 Repo.insert!(%Credential{
   user_id: admin.id,
   email: "admin@eazip.com",
-  password: "admin",
+  password: "admin"
 })
 
 Repo.insert!(%Credential{
@@ -270,11 +276,12 @@ alteration_extend_bottom =
 
 # Services
 
-Repo.insert!(%Service{
-  clothe_id: clothe_dress.id,
-  alteration_id: alteration_commons_hem.id,
-  value_base: 10.00
-})
+service_dress_commons_hem =
+  Repo.insert!(%Service{
+    clothe_id: clothe_dress.id,
+    alteration_id: alteration_commons_hem.id,
+    value_base: 10.00
+  })
 
 Repo.insert!(%Service{
   clothe_id: clothe_dress.id,
@@ -364,4 +371,12 @@ Repo.insert!(%Service{
   clothe_id: clothe_trouser.id,
   alteration_id: alteration_shorten_waist.id,
   value_base: 30.00
+})
+
+# Commands
+
+Repo.insert!(%Command{
+  status: "pending",
+  customer_id: quentin.id,
+  sewer_id: marie.id
 })
