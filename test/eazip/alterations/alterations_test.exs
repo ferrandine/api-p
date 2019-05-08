@@ -103,7 +103,9 @@ defmodule Eazip.AlterationsTest do
     end
 
     test "create_alteration_category/1 with valid data creates a alteration_category" do
-      assert {:ok, %AlterationCategory{} = alteration_category} = Alterations.create_alteration_category(@valid_attrs)
+      assert {:ok, %AlterationCategory{} = alteration_category} =
+               Alterations.create_alteration_category(@valid_attrs)
+
       assert alteration_category.type == "some type"
     end
 
@@ -113,20 +115,31 @@ defmodule Eazip.AlterationsTest do
 
     test "update_alteration_category/2 with valid data updates the alteration_category" do
       alteration_category = alteration_category_fixture()
-      assert {:ok, %AlterationCategory{} = alteration_category} = Alterations.update_alteration_category(alteration_category, @update_attrs)
+
+      assert {:ok, %AlterationCategory{} = alteration_category} =
+               Alterations.update_alteration_category(alteration_category, @update_attrs)
+
       assert alteration_category.type == "some updated type"
     end
 
     test "update_alteration_category/2 with invalid data returns error changeset" do
       alteration_category = alteration_category_fixture()
-      assert {:error, %Ecto.Changeset{}} = Alterations.update_alteration_category(alteration_category, @invalid_attrs)
+
+      assert {:error, %Ecto.Changeset{}} =
+               Alterations.update_alteration_category(alteration_category, @invalid_attrs)
+
       assert alteration_category == Alterations.get_alteration_category!(alteration_category.id)
     end
 
     test "delete_alteration_category/1 deletes the alteration_category" do
       alteration_category = alteration_category_fixture()
-      assert {:ok, %AlterationCategory{}} = Alterations.delete_alteration_category(alteration_category)
-      assert_raise Ecto.NoResultsError, fn -> Alterations.get_alteration_category!(alteration_category.id) end
+
+      assert {:ok, %AlterationCategory{}} =
+               Alterations.delete_alteration_category(alteration_category)
+
+      assert_raise Ecto.NoResultsError, fn ->
+        Alterations.get_alteration_category!(alteration_category.id)
+      end
     end
 
     test "change_alteration_category/1 returns a alteration_category changeset" do

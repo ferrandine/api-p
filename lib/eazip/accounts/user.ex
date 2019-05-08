@@ -8,6 +8,10 @@ defmodule Eazip.Accounts.User do
     field :first_name, :string
     field :last_name, :string
     field :sex, :integer
+    field :country, :string
+    field :city, :string
+    field :post_code, :string
+    field :street, :string
     has_one :credential, Credential
 
     timestamps()
@@ -16,7 +20,25 @@ defmodule Eazip.Accounts.User do
   @doc false
   def changeset(user, attrs) do
     user
-    |> cast(attrs, [:first_name, :last_name, :sex, :birthdate])
-    |> validate_required([:first_name, :last_name, :sex, :birthdate])
+    |> cast(attrs, [
+      :first_name,
+      :last_name,
+      :sex,
+      :birthdate,
+      :country,
+      :city,
+      :post_code,
+      :street
+    ])
+    |> validate_required([
+      :first_name,
+      :last_name,
+      :sex,
+      :birthdate,
+      :country,
+      :city,
+      :post_code,
+      :street
+    ])
   end
 end

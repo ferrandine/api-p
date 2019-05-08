@@ -3,7 +3,9 @@ defmodule EazipWeb.AlterationCategoryView do
   alias EazipWeb.AlterationCategoryView
 
   def render("index.json", %{alteration_categories: alteration_categories}) do
-    %{data: render_many(alteration_categories, AlterationCategoryView, "alteration_category.json")}
+    %{
+      data: render_many(alteration_categories, AlterationCategoryView, "alteration_category.json")
+    }
   end
 
   def render("show.json", %{alteration_category: alteration_category}) do
@@ -11,7 +13,6 @@ defmodule EazipWeb.AlterationCategoryView do
   end
 
   def render("alteration_category.json", %{alteration_category: alteration_category}) do
-    %{id: alteration_category.id,
-      type: alteration_category.type}
+    %{id: alteration_category.id, type: alteration_category.type}
   end
 end
