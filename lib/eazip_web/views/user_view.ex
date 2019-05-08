@@ -16,7 +16,12 @@ defmodule EazipWeb.UserView do
       first_name: user.first_name,
       last_name: user.last_name,
       sex: user.sex,
-      birthdate: user.birthdate
+      birthdate: user.birthdate,
+      country: user.country,
+      city: user.city,
+      post_code: user.post_code,
+      street: user.street,
+      type: user.type,
     }
   end
 end
