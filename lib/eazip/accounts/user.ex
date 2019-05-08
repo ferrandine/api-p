@@ -12,6 +12,7 @@ defmodule Eazip.Accounts.User do
     field :city, :string
     field :post_code, :string
     field :street, :string
+    field :type, :integer
     has_one :credential, Credential
 
     timestamps()
@@ -28,7 +29,8 @@ defmodule Eazip.Accounts.User do
       :country,
       :city,
       :post_code,
-      :street
+      :street,
+      :type
     ])
     |> validate_required([
       :first_name,
@@ -38,7 +40,9 @@ defmodule Eazip.Accounts.User do
       :country,
       :city,
       :post_code,
-      :street
+      :street,
+      :type
     ])
+    |> validate_inclusion(:type, 0..2)
   end
 end
