@@ -119,48 +119,56 @@ Repo.insert!(%Credential{
 
 clothe_dress =
   Repo.insert!(%Clothe{
+    label: "Robe",
     type: "dress",
     image: ""
   })
 
 clothe_trouser =
   Repo.insert!(%Clothe{
+    label: "Pantalon",
     type: "trouser",
     image: ""
   })
 
 clothe_t_shirt =
   Repo.insert!(%Clothe{
+    label: "T-Shirt",
     type: "t-shirt",
     image: ""
   })
 
 clothe_skirt =
   Repo.insert!(%Clothe{
+    label: "Jupe",
     type: "skirt",
     image: ""
   })
 
 clothe_shirt =
   Repo.insert!(%Clothe{
+    label: "Short",
     type: "shirt",
     image: ""
   })
 
 clothe_pullover =
   Repo.insert!(%Clothe{
+    label: "Pull-over",
     type: "pullover",
     image: ""
   })
 
 clothe_blazer =
   Repo.insert!(%Clothe{
+    label: "Blazer",
     type: "blazer",
     image: ""
   })
 
 clothe_coat =
   Repo.insert!(%Clothe{
+    label: "Manteau",
     type: "coat",
     image: ""
   })
