@@ -11,6 +11,6 @@ defmodule EazipWeb.ClotheView do
   end
 
   def render("clothe.json", %{clothe: clothe}) do
-    %{id: clothe.id, image: clothe.image, type: clothe.type}
+    %{id: clothe.id, image: clothe.image, type: clothe.type, label: clothe.label}
   end
 end

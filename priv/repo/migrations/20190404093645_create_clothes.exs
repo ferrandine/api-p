@@ -5,6 +5,7 @@ defmodule Eazip.Repo.Migrations.CreateClothes do
     create table(:clothes) do
       add :image, :string
       add :type, :string
+      add :label, :string
 
       timestamps()
     end

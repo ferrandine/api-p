@@ -5,6 +5,7 @@ defmodule Eazip.Clothes.Clothe do
   schema "clothes" do
     field :image, :string
     field :type, :string
+    field :label, :string
 
     timestamps()
   end
@@ -12,8 +13,8 @@ defmodule Eazip.Clothes.Clothe do
   @doc false
   def changeset(clothe, attrs) do
     clothe
-    |> cast(attrs, [:image, :type])
-    |> validate_required([:image, :type])
+    |> cast(attrs, [:image, :type, :label])
+    |> validate_required([:image, :type, :label])
     |> unique_constraint(:type)
   end
 end
