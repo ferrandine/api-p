@@ -27,4 +27,32 @@ defmodule EazipWeb.ServiceView do
         )
     }
   end
+  
+  def render("service_without_clothe.json", %{service: service}) do
+    %{
+      id: service.id,
+      value_base: service.value_base,
+      alteration: render_one(service.alteration, AlterationView, "alteration.json"),
+      category:
+        render_one(
+          service.alteration.alteration_category,
+          AlterationCategoryView,
+          "alteration_category.json"
+        )
+    }
+  end
+
+  def render("grouped.json", %{service: service}) do
+  %{
+    category: service.category,
+    services: render_many(service.services, ServiceView, "service_without_clothe.json")
+  }
+  end
+
+  def render("custom.json", %{grouped: grouped}) do
+    %{data: %{
+      clothe: grouped.clothe,
+      services: render_many(grouped.services, ServiceView, "grouped.json")
+    }}
+  end
 end
