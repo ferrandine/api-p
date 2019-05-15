@@ -204,6 +204,7 @@ alteration_category_embroidery =
 
 alteration_commons_hem =
   Repo.insert!(%Alteration{
+    label: "Ourlet simple",
     image: "",
     type: "hem",
     description: "hem description",
@@ -212,6 +213,7 @@ alteration_commons_hem =
 
 alteation_commons_zip =
   Repo.insert!(%Alteration{
+    label: "Zip: ajout/remplacement",
     image: "",
     type: "zip",
     description: "zip description",
@@ -220,6 +222,7 @@ alteation_commons_zip =
 
 alteration_commons_tear =
   Repo.insert!(%Alteration{
+    label: "Déchirure/Réparation",
     image: "",
     type: "tear",
     description: "tear description",
@@ -228,6 +231,7 @@ alteration_commons_tear =
 
 alteration_commons_seam =
   Repo.insert!(%Alteration{
+    label: "Couture d'appoint",
     image: "",
     type: "seam",
     description: "seam description",
@@ -236,6 +240,7 @@ alteration_commons_seam =
 
 alteration_shorten_sleeve =
   Repo.insert!(%Alteration{
+    label: "Rétrécir - Manches",
     image: "",
     type: "sleeve",
     description: "sleeve description",
@@ -244,6 +249,7 @@ alteration_shorten_sleeve =
 
 alteration_shorten_waist =
   Repo.insert!(%Alteration{
+    label: "Rétrécir - Taille",
     image: "",
     type: "waist",
     description: "waist description",
@@ -252,6 +258,7 @@ alteration_shorten_waist =
 
 alteration_shorten_bottom =
   Repo.insert!(%Alteration{
+    label: "Rétrécir - Bas",
     image: "",
     type: "bottom",
     description: "bottom description",
@@ -260,6 +267,7 @@ alteration_shorten_bottom =
 
 alteration_extend_sleeve =
   Repo.insert!(%Alteration{
+    label: "Etendre - Manches",
     image: "",
     type: "sleeve",
     description: "sleeve description",
@@ -268,6 +276,7 @@ alteration_extend_sleeve =
 
 alteration_extend_waist =
   Repo.insert!(%Alteration{
+    label: "Etendre - Taille",
     image: "",
     type: "waist",
     description: "waist description",
@@ -276,6 +285,7 @@ alteration_extend_waist =
 
 alteration_extend_bottom =
   Repo.insert!(%Alteration{
+    label: "Etendre - Bas",
     image: "",
     type: "bottom",
     description: "bottom description",

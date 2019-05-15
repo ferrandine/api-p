@@ -4,6 +4,7 @@ defmodule Eazip.Repo.Migrations.CreateAlterations do
   def change do
     create table(:alterations) do
       add :type, :string
+      add :label, :string
       add :description, :text
       add :image, :string
       add :category_id, references(:alteration_categories, on_delete: :delete_all), null: false
