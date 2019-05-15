@@ -14,7 +14,7 @@ alias Eazip.Clothes.Clothe
 alias Eazip.Alterations.{Alteration, AlterationCategory}
 alias Eazip.Services.Service
 alias Eazip.Accounts.{User, Credential}
-alias Eazip.Commands.Command
+alias Eazip.Commands.{Command, CommandService}
 
 # Users
 
@@ -379,4 +379,16 @@ Repo.insert!(%Command{
   status: "pending",
   customer_id: quentin.id,
   sewer_id: marie.id
+})
+
+command_1 =
+  Repo.insert!(%Command{
+    status: "pending",
+    customer_id: julien.id,
+    sewer_id: alison.id
+  })
+
+Repo.insert!(%CommandService{
+  service_id: service_dress_commons_hem.id,
+  command_id: command_1.id
 })

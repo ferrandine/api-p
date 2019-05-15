@@ -19,7 +19,9 @@ defmodule Eazip.Commands do
 
   """
   def list_commands do
-    Repo.all(Command)
+    Command
+    |> Repo.all()
+    |> Repo.preload([{:services, [:clothe, {:alteration, :alteration_category}]}])
   end
 
   @doc """
@@ -67,6 +69,13 @@ defmodule Eazip.Commands do
 
       {:ok, command}
     end)
+  end
+
+  def for_user(id) do
+    query = from c in Command, where: c.customer_id == ^id
+
+    Repo.all(query)
+    |> Repo.preload([{:services, [:clothe, {:alteration, :alteration_category}]}])
   end
 
   @doc """

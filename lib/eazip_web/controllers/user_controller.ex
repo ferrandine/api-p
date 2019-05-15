@@ -3,6 +3,7 @@ defmodule EazipWeb.UserController do
 
   alias Eazip.Accounts
   alias Eazip.Accounts.User
+  alias Eazip.Commands
 
   action_fallback EazipWeb.FallbackController
 
