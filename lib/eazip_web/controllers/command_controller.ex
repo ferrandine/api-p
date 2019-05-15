@@ -11,6 +11,12 @@ defmodule EazipWeb.CommandController do
     render(conn, "index.json", commands: commands)
   end
 
+  def index_for_user(conn, %{"user_id" => id}) do
+    commands = Commands.for_user(id)
+
+    render(conn, "index.json", commands: commands)
+  end
+
   def create(conn, %{"command" => command_params}) do
     with {:ok, %Command{} = command} <- Commands.create_command(command_params) do
       conn
