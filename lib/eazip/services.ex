@@ -23,6 +23,12 @@ defmodule Eazip.Services do
     |> Repo.preload([:clothe, {:alteration, :alteration_category}])
   end
 
+  def for_clothe(id) do
+    query = from s in Service, where: s.clothe_id == ^id
+
+    Repo.all(query) |> Repo.preload([{:alteration, :alteration_category}])
+  end
+
   @doc """
   Gets a single service.
 

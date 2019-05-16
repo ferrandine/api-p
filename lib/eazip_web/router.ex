@@ -11,7 +11,11 @@ defmodule EazipWeb.Router do
     resources "/users", UserController, except: [:new, :edit] do
       get "/commands", CommandController, :index_for_user
     end
-    resources "/clothes", ClotheController, except: [:new, :edit]
+
+    resources "/clothes", ClotheController, except: [:new, :edit] do
+      get "/services", ServiceController, :index_for_clothe
+    end
+
     resources "/alterations", AlterationController, except: [:new, :edit]
     resources "/alteration_categories", AlterationCategoryController, except: [:new, :edit]
     resources "/services", ServiceController, except: [:new, :edit]
