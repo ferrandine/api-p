@@ -15,6 +15,7 @@ alias Eazip.Alterations.{Alteration, AlterationCategory}
 alias Eazip.Services.Service
 alias Eazip.Accounts.{User, Credential}
 alias Eazip.Commands.{Command, CommandService}
+alias Eazip.Sewers.SewerProfile
 
 # Users
 
@@ -82,6 +83,22 @@ alison =
     street: "04 rue Royale",
     type: 2
   })
+
+# SewerProfiles
+
+Repo.insert!(%SewerProfile{
+  user_id: alison.id,
+  description:
+    "Passionnée par la couture depuis l'age de 6 mois, j'ai collaboré avec les plus grandes marques de moyenne et haute couture.",
+  picture: ""
+})
+
+Repo.insert!(%SewerProfile{
+  user_id: marie.id,
+  description:
+    "Championne du monde de couture croisée, je me prépare pour les jeux olympiques de Paris 2024",
+  picture: ""
+})
 
 # Credentials
 
