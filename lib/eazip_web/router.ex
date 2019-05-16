@@ -20,5 +20,6 @@ defmodule EazipWeb.Router do
     resources "/alteration_categories", AlterationCategoryController, except: [:new, :edit]
     resources "/services", ServiceController, except: [:new, :edit]
     resources "/commands", CommandController, except: [:new, :edit]
+    resources "/sewers", SewerProfileController, except: [:new, :edit]
   end
 end
