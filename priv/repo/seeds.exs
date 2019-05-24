@@ -16,6 +16,7 @@ alias Eazip.Services.Service
 alias Eazip.Accounts.{User, Credential}
 alias Eazip.Commands.{Command, CommandService}
 alias Eazip.Sewers.SewerProfile
+alias Eazip.Reviews.Review
 
 # Users
 
@@ -372,11 +373,12 @@ Repo.insert!(%Service{
   value_base: 10.00
 })
 
-Repo.insert!(%Service{
-  clothe_id: clothe_trouser.id,
-  alteration_id: alteration_commons_hem.id,
-  value_base: 10.00
-})
+service_trouser_commons_hem =
+  Repo.insert!(%Service{
+    clothe_id: clothe_trouser.id,
+    alteration_id: alteration_commons_hem.id,
+    value_base: 10.00
+  })
 
 Repo.insert!(%Service{
   clothe_id: clothe_trouser.id,
@@ -390,7 +392,7 @@ Repo.insert!(%Service{
   value_base: 15.00
 })
 
-Repo.insert!(%Service{
+service_trouser_extend_waist = Repo.insert!(%Service{
   clothe_id: clothe_trouser.id,
   alteration_id: alteration_extend_waist.id,
   value_base: 25.00
@@ -410,15 +412,16 @@ Repo.insert!(%Service{
 
 # Commands
 
-Repo.insert!(%Command{
-  status: "pending",
-  customer_id: quentin.id,
-  sewer_id: marie.id
-})
-
 command_1 =
   Repo.insert!(%Command{
     status: "pending",
+    customer_id: quentin.id,
+    sewer_id: marie.id
+  })
+
+command_2 =
+  Repo.insert!(%Command{
+    status: "done",
     customer_id: julien.id,
     sewer_id: alison.id
   })
@@ -426,4 +429,24 @@ command_1 =
 Repo.insert!(%CommandService{
   service_id: service_dress_commons_hem.id,
   command_id: command_1.id
+})
+
+Repo.insert!(%CommandService{
+  service_id: service_trouser_commons_hem.id,
+  command_id: command_1.id
+})
+
+Repo.insert!(%CommandService{
+  service_id: service_trouser_extend_waist.id,
+  command_id: command_2.id,
+})
+
+# Reviews
+
+Repo.insert!(%Review{
+  customer_id: command_2.customer_id,
+  sewer_id: command_2.sewer_id,
+  command_id: command_2.id,
+  comment: "Alison était super, arrivée à l'heure, super sympa m'a donné plein de bons conseils",
+  rating: 5,
 })

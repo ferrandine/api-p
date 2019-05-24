@@ -27,7 +27,7 @@ defmodule EazipWeb.ServiceView do
         )
     }
   end
-  
+
   def render("service_without_clothe.json", %{service: service}) do
     %{
       id: service.id,
@@ -42,16 +42,18 @@ defmodule EazipWeb.ServiceView do
   end
 
   def render("by_category.json", %{service: service}) do
-  %{
-    category: service.category,
-    services: render_many(service.services, ServiceView, "service_without_clothe.json")
-  }
+    %{
+      category: service.category,
+      services: render_many(service.services, ServiceView, "service_without_clothe.json")
+    }
   end
 
   def render("for_clothe.json", %{data: data}) do
-    %{data: %{
-      clothe: data.clothe,
-      services: render_many(data.services, ServiceView, "by_category.json")
-    }}
+    %{
+      data: %{
+        clothe: data.clothe,
+        services: render_many(data.services, ServiceView, "by_category.json")
+      }
+    }
   end
 end
