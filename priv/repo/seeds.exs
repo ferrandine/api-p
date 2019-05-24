@@ -392,11 +392,12 @@ Repo.insert!(%Service{
   value_base: 15.00
 })
 
-service_trouser_extend_waist = Repo.insert!(%Service{
-  clothe_id: clothe_trouser.id,
-  alteration_id: alteration_extend_waist.id,
-  value_base: 25.00
-})
+service_trouser_extend_waist =
+  Repo.insert!(%Service{
+    clothe_id: clothe_trouser.id,
+    alteration_id: alteration_extend_waist.id,
+    value_base: 25.00
+  })
 
 Repo.insert!(%Service{
   clothe_id: clothe_trouser.id,
@@ -438,7 +439,7 @@ Repo.insert!(%CommandService{
 
 Repo.insert!(%CommandService{
   service_id: service_trouser_extend_waist.id,
-  command_id: command_2.id,
+  command_id: command_2.id
 })
 
 # Reviews
@@ -448,5 +449,5 @@ Repo.insert!(%Review{
   sewer_id: command_2.sewer_id,
   command_id: command_2.id,
   comment: "Alison était super, arrivée à l'heure, super sympa m'a donné plein de bons conseils",
-  rating: 5,
+  rating: 5
 })
