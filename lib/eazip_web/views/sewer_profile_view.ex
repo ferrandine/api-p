@@ -16,7 +16,12 @@ defmodule EazipWeb.SewerProfileView do
       picture: sewer_profile.picture,
       description: sewer_profile.description,
       first_name: sewer_profile.user.first_name,
-      last_name: sewer_profile.user.last_name
+      last_name: sewer_profile.user.last_name,
+      rating:
+        case sewer_profile.rating do
+          nil -> nil
+          rating -> rating |> Decimal.round() |> Decimal.to_integer()
+        end
     }
   end
 end

@@ -2,6 +2,7 @@ defmodule Eazip.Accounts.User do
   use Ecto.Schema
   import Ecto.Changeset
   alias Eazip.Accounts.Credential
+  alias Eazip.Reviews.Review
 
   schema "users" do
     field :birthdate, :date
@@ -14,6 +15,7 @@ defmodule Eazip.Accounts.User do
     field :street, :string
     field :type, :integer
     has_one :credential, Credential
+    has_many :sewer_reviews, Review, foreign_key: :sewer_id
 
     timestamps()
   end

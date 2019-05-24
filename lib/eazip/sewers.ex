@@ -7,6 +7,7 @@ defmodule Eazip.Sewers do
   alias Eazip.Repo
 
   alias Eazip.Sewers.SewerProfile
+  # alias Eazip.Reviews.Review
 
   @doc """
   Returns the list of sewer_profiles.
@@ -18,7 +19,7 @@ defmodule Eazip.Sewers do
 
   """
   def list_sewer_profiles do
-    SewerProfile |> Repo.all() |> Repo.preload(:user)
+    SewerProfile |> SewerProfile.get_rating() |> Repo.all() |> Repo.preload(:user)
   end
 
   @doc """
@@ -35,7 +36,13 @@ defmodule Eazip.Sewers do
       ** (Ecto.NoResultsError)
 
   """
-  def get_sewer_profile!(id), do: Repo.get!(SewerProfile, id)
+  def get_sewer_profile!(id) do
+    SewerProfile
+    |> SewerProfile.get_rating()
+    |> where(id: ^id)
+    |> Repo.one!()
+    |> Repo.preload(:user)
+  end
 
   @doc """
   Creates a sewer_profile.
