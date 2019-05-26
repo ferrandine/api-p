@@ -6,6 +6,7 @@ defmodule Eazip.Repo.Migrations.CreateCommands do
       add :status, :string, null: false, default: "pending"
       add :customer_id, references(:users, on_delete: :nothing), null: false
       add :sewer_id, references(:users, on_delete: :nothing), null: false
+      add :appointment_at, :utc_datetime
 
       timestamps()
     end
