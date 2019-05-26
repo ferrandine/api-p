@@ -15,7 +15,10 @@ defmodule EazipWeb.CommandView do
     %{
       id: command.id,
       status: command.status,
-      services: render_many(command.services, ServiceView, "service.json")
+      appointment_at: command.appointment_at,
+      services: render_many(command.services, ServiceView, "service.json"),
+      customer_id: command.customer_id,
+      sewer_id: command.sewer_id
     }
   end
 end

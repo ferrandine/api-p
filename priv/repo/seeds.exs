@@ -413,9 +413,13 @@ Repo.insert!(%Service{
 
 # Commands
 
+{:ok, date_1, _} = DateTime.from_iso8601("2019-06-08T11:00:00+0100")
+{:ok, date_2, _} = DateTime.from_iso8601("2019-06-11T16:00:00+0100")
+
 command_1 =
   Repo.insert!(%Command{
     status: "pending",
+    appointment_at: date_1,
     customer_id: quentin.id,
     sewer_id: marie.id
   })
@@ -423,6 +427,7 @@ command_1 =
 command_2 =
   Repo.insert!(%Command{
     status: "done",
+    appointment_at: date_2,
     customer_id: julien.id,
     sewer_id: alison.id
   })
