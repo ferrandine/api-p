@@ -13,10 +13,14 @@ tags:
   description: "Clothes"
 - name: "alteration"
   description: "Alterations"
+- name: "alteration_category"
+  description: "Alteration categories"
 - name: "service"
   description: "Services"
 - name: "command"
   description: "Commands"
+- name: "sewer"
+  description: "Sewers"
 - name: "user"
   description: "Users"
 paths:
@@ -116,6 +120,35 @@ paths:
       responses:
         '204':
           description: The resource was deleted successfully.
+  /clothes/{id}/services:
+    parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        required: true
+    get:
+      tags:
+      - "clothe"
+      - "service"
+      summary: "Index all services for a clothe"
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: object
+                    properties: 
+                      clothe: 
+                        type: string
+                      services:
+                        type: array
+                        items:
+                          $ref: "#/components/schemas/Service"
   /alterations:
     get:
       tags:
@@ -212,6 +245,486 @@ paths:
       responses:
         '204':
           description: The resource was deleted successfully.
+  /alteration_categories:
+    get:
+      tags:
+      - "alteration_category"
+      summary: "Index all alteration categories"
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data: 
+                    type: array
+                    items:
+                      $ref: "#/components/schemas/AlterationCategory"
+    post:
+      tags:
+      - "alteration_category"
+      summary: "Create a new alteration category"
+      requestBody:
+        description: "Alteration category object to be created"
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                alteration_category:
+                  $ref: "#/components/schemas/AlterationCategory"
+      responses:
+        "200":
+          description: OK
+  /alterations_categories/{id}:
+    parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        required: true
+    get:
+      tags: 
+      - "alteration_category"
+      summary: "Show one alteration category"
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    $ref: "#/components/schemas/AlterationCategory"
+    put:
+      tags:
+      - "alteration_category"
+      summary: "Update an existing alteration category"
+      requestBody:
+        description: "Alteration category object to be updated"
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                alteration_category:
+                  $ref: "#/components/schemas/AlterationCategory"
+      responses:
+        "200":
+          description: OK
+    patch:
+      tags:
+      - "alteration_category"
+      summary: "Update an existing alteration category"
+      requestBody:
+        description: "Alteration category object to be updated"
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                alteration_category:
+                  $ref: "#/components/schemas/AlterationCategory"
+      responses:
+        "200":
+          description: OK
+    delete:
+      tags:
+      - "alteration_category"
+      summary: "Delete an existing alteration category"
+      responses:
+        '204':
+          description: The resource was deleted successfully. 
+  /services:
+    get:
+      tags:
+      - "service"
+      summary: "Index all services"
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data: 
+                    type: array
+                    items:
+                      $ref: "#/components/schemas/Service"
+    post:
+      tags:
+      - "service"
+      summary: "Create a new service"
+      requestBody:
+        description: "Service object to be created"
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                service:
+                  $ref: "#/components/schemas/ServiceBody"
+      responses:
+        "200":
+          description: OK
+  /services/{id}:
+    parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        required: true
+    get:
+      tags: 
+      - "service"
+      summary: "Show one service"
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    $ref: "#/components/schemas/Service"
+    put:
+      tags:
+      - "service"
+      summary: "Update an existing service"
+      requestBody:
+        description: "Service object to be updated"
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                service:
+                  $ref: "#/components/schemas/ServiceBody"
+      responses:
+        "200":
+          description: OK
+    patch:
+      tags:
+      - "service"
+      summary: "Update an existing service"
+      requestBody:
+        description: "Service object to be updated"
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                service:
+                  $ref: "#/components/schemas/ServiceBody"
+      responses:
+        "200":
+          description: OK
+    delete:
+      tags:
+      - "service"
+      summary: "Delete an existing service"
+      responses:
+        '204':
+          description: The resource was deleted successfully.
+  /commands:
+    get:
+      tags:
+      - "command"
+      summary: "Index all commands"
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data: 
+                    type: array
+                    items:
+                      $ref: "#/components/schemas/Command"
+    post:
+      tags:
+      - "command"
+      summary: "Create a new command"
+      requestBody:
+        description: "Command object to be created"
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                command:
+                  $ref: "#/components/schemas/CommandBodyWithServices"
+      responses:
+        "200":
+          description: OK
+  /commands/{id}:
+    parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        required: true
+    get:
+      tags: 
+      - "command"
+      summary: "Show one command"
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    $ref: "#/components/schemas/Command"
+    put:
+      tags:
+      - "command"
+      summary: "Update an existing command"
+      requestBody:
+        description: "Command object to be updated"
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                command:
+                  $ref: "#/components/schemas/CommandBody"
+      responses:
+        "200":
+          description: OK
+    patch:
+      tags:
+      - "command"
+      summary: "Update an existing command"
+      requestBody:
+        description: "Command object to be updated"
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                command:
+                  $ref: "#/components/schemas/CommandBody"
+      responses:
+        "200":
+          description: OK
+    delete:
+      tags:
+      - "command"
+      summary: "Delete an existing command"
+      responses:
+        '204':
+          description: The resource was deleted successfully.
+  /reviews:
+    get:
+      tags:
+      - "review"
+      summary: "Index all reviews"
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data: 
+                    type: array
+                    items:
+                      $ref: "#/components/schemas/Review"
+    post:
+      tags:
+      - "review"
+      summary: "Create a new review"
+      requestBody:
+        description: "Command object to be created"
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                review:
+                  $ref: "#/components/schemas/ReviewBody"
+      responses:
+        "200":
+          description: OK
+  /reviews/{id}:
+    parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        required: true
+    get:
+      tags: 
+      - "review"
+      summary: "Show one review"
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    $ref: "#/components/schemas/Review"
+    put:
+      tags:
+      - "review"
+      summary: "Update an existing review"
+      requestBody:
+        description: "Review object to be updated"
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                review:
+                  $ref: "#/components/schemas/ReviewBody"
+      responses:
+        "200":
+          description: OK
+    patch:
+      tags:
+      - "review"
+      summary: "Update an existing review"
+      requestBody:
+        description: "Review object to be updated"
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                review:
+                  $ref: "#/components/schemas/ReviewBody"
+      responses:
+        "200":
+          description: OK
+    delete:
+      tags:
+      - "review"
+      summary: "Delete an existing review"
+      responses:
+        '204':
+          description: The resource was deleted successfully.          
+  /sewers:
+    get:
+      tags:
+      - "sewer"
+      summary: "Index all sewers"
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data: 
+                    type: array
+                    items:
+                      $ref: "#/components/schemas/SewerWithRating"
+    post:
+      tags:
+      - "sewer"
+      summary: "Create a new sewer"
+      requestBody:
+        description: "Sewer object to be created"
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                sewer:
+                  $ref: "#/components/schemas/Sewer"
+      responses:
+        "200":
+          description: OK
+  /sewers/{id}:
+    parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        required: true
+    get:
+      tags: 
+      - "sewer"
+      summary: "Show one sewer"
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    $ref: "#/components/schemas/SewerWithRating"
+    put:
+      tags:
+      - "sewer"
+      summary: "Update an existing sewer"
+      requestBody:
+        description: "Sewer object to be updated"
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                sewer:
+                  $ref: "#/components/schemas/Sewer"
+      responses:
+        "200":
+          description: OK
+    patch:
+      tags:
+      - "sewer"
+      summary: "Update an existing sewer"
+      requestBody:
+        description: "Sewer object to be updated"
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                sewer:
+                  $ref: "#/components/schemas/Sewer"
+      responses:
+        "200":
+          description: OK
+    delete:
+      tags:
+      - "sewer"
+      summary: "Delete an existing sewer"
+      responses:
+        '204':
+          description: The resource was deleted successfully.          
   /users:
     get:
       tags:
@@ -223,9 +736,12 @@ paths:
           content:
             application/json:
               schema:
-                type: "array"
-                items:
-                  $ref: "#/components/schemas/User"
+                type: object
+                properties:
+                  data:
+                    type: array
+                    items:
+                      $ref: "#/components/schemas/User"
     post:
       tags:
       - "user"
@@ -262,7 +778,10 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/User"
+                type: object
+                properties:
+                  data:
+                    $ref: "#/components/schemas/User"
     put:
       tags:
       - "user"
@@ -273,7 +792,12 @@ paths:
         content:
           application/json:
             schema:
-              $ref: "#/components/schemas/User"
+              type: object
+              properties: 
+                user:
+                  $ref: "#/components/schemas/User"
+                credentials:
+                  $ref: "#/components/schemas/Credential"
       responses:
         "200":
           description: OK
@@ -287,7 +811,12 @@ paths:
         content:
           application/json:
             schema:
-              $ref: "#/components/schemas/User"
+              type: object
+              properties: 
+                user:
+                  $ref: "#/components/schemas/User"
+                credentials:
+                  $ref: "#/components/schemas/Credential"
       responses:
         "200":
           description: OK
@@ -298,6 +827,30 @@ paths:
       responses:
         '204':
           description: The resource was deleted successfully.
+  /users/{id}/commands:
+    parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        required: true
+    get:
+      tags:
+      - "user"
+      - "command"
+      summary: "Index all commands for an user"
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: array
+                    items:
+                      $ref: "#/components/schemas/Command"
 components:
   responses:
     NotFound:
@@ -351,6 +904,87 @@ components:
           description: "Alteration's description"
       xml:
         name: "Alteration"
+    AlterationCategory:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        type:
+          type: string
+      xml:
+        name: "AlterationCategory"
+    ServiceBody:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        alteration_id:
+          type: string
+        clothe_id:
+          type: string
+        category_id:
+          type: string
+        value_base:
+          type: string
+          format: Decimal
+          description: "Price of the service in the base currency"
+      xml:
+        name: "ServiceBody"
+    Service:
+      type: object
+      
+      properties:
+        id:
+          type: integer
+          format: int64
+        alteration:
+          $ref: "#/components/schemas/Alteration"
+        clothe:
+          $ref: "#/components/schemas/Clothe"
+        category:
+          $ref: "#/components/schemas/AlterationCategory"
+        value_base:
+          type: string
+          format: Decimal
+          description: "Price of the service in the base currency"
+      xml:  
+        name: "Service"
+    CommandBody:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        appointment_at:
+          type: string
+          format: data-time
+        customer_id:
+          type: string
+        sewer_id:
+          type: string
+    CommandBodyWithServices:
+      allOf:
+        - $ref: "#/components/schemas/CommandBody"
+        - type: object
+          properties:
+            services:
+              type: array
+              items:
+                type: integer
+                format: int64
+    Command:
+      allOf:
+        - $ref: "#/components/schemas/CommandBody"
+        - type: object
+          properties:
+            services:
+              type: array
+              items:
+                $ref: "#/components/schemas/Service"
+      xml:
+        name: "Command"
     Review:
       type: object
       properties:
@@ -372,6 +1006,17 @@ components:
           description: "Customer's rating on a command"
       xml:
         name: "Review"
+    ReviewBody:
+      allOf:
+        - $ref: "#/components/schemas/Review"
+        - type: object
+          properties:
+            customer_id:
+              type: string
+            sewer_id:
+              type: string
+            command_id:
+              type: string
     Order:
       type: "object"
       properties:
@@ -468,13 +1113,20 @@ components:
         picture: 
           type: string
           description: "Sewer's profile picture url"
-        rating:
-          type: integer
-          format: int64
-          nullable: true
-          enum:
-            - 1
-            - 2
-            - 3
-            - 4
-            - 5
+    SewerWithRating:
+      allOf:
+        - $ref: "#/components/schemas/Sewer"
+        - type: object
+          properties:
+            rating:
+              type: integer
+              format: int64
+              nullable: true
+              enum:
+                - 1
+                - 2
+                - 3
+                - 4
+                - 5
+            
+        
