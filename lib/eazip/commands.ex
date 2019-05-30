@@ -38,7 +38,11 @@ defmodule Eazip.Commands do
       ** (Ecto.NoResultsError)
 
   """
-  def get_command!(id), do: Repo.get!(Command, id)
+  def get_command!(id) do
+    Command
+    |> Repo.get!(id)
+    |> Repo.preload([{:services, [:clothe, {:alteration, :alteration_category}]}])
+  end
 
   @doc """
   Creates a command.
