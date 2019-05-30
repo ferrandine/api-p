@@ -55,7 +55,7 @@ defmodule Eazip.Commands do
   def create_command(attrs \\ %{}) do
     {:ok, %{command: command}} = Repo.transaction(create_command_join_services(attrs))
 
-    {:ok, command}
+    {:ok, Repo.preload(command, [{:services, [:clothe, {:alteration, :alteration_category}]}])}
   end
 
   defp create_command_join_services(%{"services" => services} = attrs) do
