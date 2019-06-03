@@ -958,7 +958,7 @@ components:
           format: int64
         appointment_at:
           type: string
-          format: data-time
+          format: date-time
         customer_id:
           type: string
         sewer_id:
