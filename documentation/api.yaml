@@ -934,7 +934,6 @@ components:
         name: "ServiceBody"
     Service:
       type: object
-      
       properties:
         id:
           type: integer
@@ -964,6 +963,12 @@ components:
           type: string
         sewer_id:
           type: string
+        status:
+          type: "string"
+          enum:
+          - "placed"
+          - "approved"
+          - "delivered"
     CommandBodyWithServices:
       allOf:
         - $ref: "#/components/schemas/CommandBody"
@@ -1017,33 +1022,6 @@ components:
               type: string
             command_id:
               type: string
-    Order:
-      type: "object"
-      properties:
-        id:
-          type: "integer"
-          format: "int64"
-        petId:
-          type: "integer"
-          format: "int64"
-        quantity:
-          type: "integer"
-          format: "int32"
-        shipDate:
-          type: "string"
-          format: "date-time"
-        status:
-          type: "string"
-          description: "Order Status"
-          enum:
-          - "placed"
-          - "approved"
-          - "delivered"
-        complete:
-          type: "boolean"
-          default: false
-      xml:
-        name: "Order"
     Credential:
       type: object
       properties:
@@ -1053,7 +1031,6 @@ components:
           type: string
       xml: 
         name: "Credential"
-            
     User:
       type: object
       properties:

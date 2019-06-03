@@ -620,7 +620,7 @@ Repo.insert!(%Service{
 
 command_1 =
   Repo.insert!(%Command{
-    status: "pending",
+    status: "placed",
     appointment_at: date_1,
     customer_id: quentin.id,
     sewer_id: marie.id
@@ -628,7 +628,7 @@ command_1 =
 
 command_2 =
   Repo.insert!(%Command{
-    status: "done",
+    status: "delivered",
     appointment_at: date_2,
     customer_id: julien.id,
     sewer_id: alison.id
