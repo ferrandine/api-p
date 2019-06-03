@@ -21,5 +21,6 @@ defmodule Eazip.Commands.Command do
     |> validate_required([:customer_id, :sewer_id, :appointment_at])
     |> foreign_key_constraint(:customer_id)
     |> foreign_key_constraint(:sewer_id)
+    |> validate_inclusion(:status, ["placed", "approved", "delivered"])
   end
 end
