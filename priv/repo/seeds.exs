@@ -62,12 +62,12 @@ julien =
 marie =
   Repo.insert!(%User{
     first_name: "Marie",
-    last_name: "Charles",
+    last_name: "Sayarath",
     birthdate: ~D[1995-01-12],
     sex: 2,
     country: "FR",
     city: "Paris",
-    post_code: "75000",
+    post_code: "75012",
     street: "03 rue Mouffetard",
     type: 2
   })
@@ -75,13 +75,143 @@ marie =
 alison =
   Repo.insert!(%User{
     first_name: "Alison",
-    last_name: "Sayarath",
+    last_name: "Charles",
     birthdate: ~D[1995-01-12],
     sex: 2,
     country: "FR",
     city: "Paris",
-    post_code: "75000",
+    post_code: "75012",
     street: "04 rue Royale",
+    type: 2
+  })
+
+lea =
+  Repo.insert!(%User{
+    first_name: "Lea",
+    last_name: "Pierre",
+    birthdate: ~D[1995-01-12],
+    sex: 2,
+    country: "FR",
+    city: "Paris",
+    post_code: "75012",
+    street: "",
+    type: 2
+  })
+
+valerie =
+  Repo.insert!(%User{
+    first_name: "Valérie",
+    last_name: "Gourdon",
+    birthdate: ~D[1995-01-12],
+    sex: 2,
+    country: "FR",
+    city: "Paris",
+    post_code: "75012",
+    street: "",
+    type: 2
+  })
+
+cynthia =
+  Repo.insert!(%User{
+    first_name: "Cynthia",
+    last_name: "Cabral",
+    birthdate: ~D[1995-01-12],
+    sex: 2,
+    country: "FR",
+    city: "Paris",
+    post_code: "75012",
+    street: "",
+    type: 2
+  })
+
+camille =
+  Repo.insert!(%User{
+    first_name: "Camille",
+    last_name: "Guillaume",
+    birthdate: ~D[1995-01-12],
+    sex: 2,
+    country: "FR",
+    city: "Paris",
+    post_code: "75012",
+    street: "",
+    type: 2
+  })
+
+melanie =
+  Repo.insert!(%User{
+    first_name: "Mélanie",
+    last_name: "Lange",
+    birthdate: ~D[1995-01-12],
+    sex: 2,
+    country: "FR",
+    city: "Paris",
+    post_code: "75012",
+    street: "",
+    type: 2
+  })
+
+annie =
+  Repo.insert!(%User{
+    first_name: "Annie",
+    last_name: "Brouard",
+    birthdate: ~D[1995-01-12],
+    sex: 2,
+    country: "FR",
+    city: "Paris",
+    post_code: "75012",
+    street: "",
+    type: 2
+  })
+
+eva =
+  Repo.insert!(%User{
+    first_name: "Eva",
+    last_name: "Rondeau",
+    birthdate: ~D[1995-01-12],
+    sex: 2,
+    country: "FR",
+    city: "Paris",
+    post_code: "75012",
+    street: "",
+    type: 2
+  })
+
+pauline =
+  Repo.insert!(%User{
+    first_name: "Pauline",
+    last_name: "Guyot-Walser",
+    birthdate: ~D[1995-01-12],
+    sex: 2,
+    country: "FR",
+    city: "Paris",
+    post_code: "75012",
+    street: "",
+    type: 2
+  })
+
+anna =
+  Repo.insert!(%User{
+    first_name: "Anna",
+    last_name: "Grandcolas",
+    birthdate: ~D[1995-01-12],
+    sex: 2,
+    country: "FR",
+    city: "Paris",
+    post_code: "75012",
+    street: "",
+    type: 2
+  })
+
+leatitia =
+  Repo.insert!(%User{
+    first_name: "Leatitia",
+    last_name: "Etchevery",
+    birthdate: ~D[1995-01-12],
+    sex: 2,
+    country: "FR",
+    city: "Paris",
+    post_code: "75012",
+    street: "",
     type: 2
   })
 
@@ -91,14 +221,86 @@ Repo.insert!(%SewerProfile{
   user_id: alison.id,
   description:
     "Passionnée par la couture depuis l'age de 6 mois, j'ai collaboré avec les plus grandes marques de moyenne et haute couture.",
-  picture: ""
+  picture:
+    "https://res.cloudinary.com/ferrandine/image/upload/v1559583458/Couturier_03_djapfh.png"
 })
 
 Repo.insert!(%SewerProfile{
   user_id: marie.id,
   description:
     "Championne du monde de couture croisée, je me prépare pour les jeux olympiques de Paris 2024",
-  picture: ""
+  picture:
+    "https://res.cloudinary.com/ferrandine/image/upload/v1559583458/Couturier_01_n0rdzh.png"
+})
+
+Repo.insert!(%SewerProfile{
+  user_id: lea.id,
+  description: "",
+  picture:
+    "https://res.cloudinary.com/ferrandine/image/upload/v1559583458/Couturier_02_ebwbwj.png"
+})
+
+Repo.insert!(%SewerProfile{
+  user_id: anna.id,
+  description: "",
+  picture:
+    "https://res.cloudinary.com/ferrandine/image/upload/v1559583462/Couturier_11_jdafmk.png"
+})
+
+Repo.insert!(%SewerProfile{
+  user_id: pauline.id,
+  description: "",
+  picture:
+    "https://res.cloudinary.com/ferrandine/image/upload/v1559583461/Couturier_10_gzkxqx.png"
+})
+
+Repo.insert!(%SewerProfile{
+  user_id: valerie.id,
+  description: "",
+  picture:
+    "https://res.cloudinary.com/ferrandine/image/upload/v1559583458/Couturier_04_w9ewx5.png"
+})
+
+Repo.insert!(%SewerProfile{
+  user_id: cynthia.id,
+  description: "",
+  picture:
+    "https://res.cloudinary.com/ferrandine/image/upload/v1559583461/Couturier_05_pzc0ky.png"
+})
+
+Repo.insert!(%SewerProfile{
+  user_id: camille.id,
+  description: "",
+  picture:
+    "https://res.cloudinary.com/ferrandine/image/upload/v1559583459/Couturier_06_wcv4fo.png"
+})
+
+Repo.insert!(%SewerProfile{
+  user_id: melanie.id,
+  description: "",
+  picture:
+    "https://res.cloudinary.com/ferrandine/image/upload/v1559583461/Couturier_07_bvinyj.png"
+})
+
+Repo.insert!(%SewerProfile{
+  user_id: annie.id,
+  description: "",
+  picture:
+    "https://res.cloudinary.com/ferrandine/image/upload/v1559583460/Couturier_08_u83iif.png"
+})
+
+Repo.insert!(%SewerProfile{
+  user_id: eva.id,
+  description: "",
+  picture:
+    "https://res.cloudinary.com/ferrandine/image/upload/v1559583462/Couturier_09_qxq4ts.png"
+})
+
+Repo.insert!(%SewerProfile{
+  user_id: leatitia.id,
+  description: "",
+  picture:
+    "https://res.cloudinary.com/ferrandine/image/upload/v1559583461/Couturier_13_wm5c03.png"
 })
 
 # Credentials
