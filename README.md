@@ -1,4 +1,4 @@
-# Ferrandine
+# Ferrandine API
 
 ## Development
 
