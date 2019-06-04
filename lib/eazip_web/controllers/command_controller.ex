@@ -17,6 +17,12 @@ defmodule EazipWeb.CommandController do
     render(conn, "index.json", commands: commands)
   end
 
+  def index_for_sewer(conn, %{"sewer_profile_id" => id}) do
+    commands = Commands.for_sewer(id)
+
+    render(conn, "index.json", commands: commands)
+  end
+
   def create(conn, %{"command" => command_params}) do
     with {:ok, %Command{} = command} <- Commands.create_command(command_params) do
       conn
