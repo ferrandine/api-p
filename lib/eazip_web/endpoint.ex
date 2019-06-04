@@ -40,5 +40,7 @@ defmodule EazipWeb.Endpoint do
     key: "_eazip_key",
     signing_salt: "+8IwHUtJ"
 
+  plug Corsica, origins: "*"
+
   plug EazipWeb.Router
 end
