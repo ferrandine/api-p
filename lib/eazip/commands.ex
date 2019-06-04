@@ -82,6 +82,13 @@ defmodule Eazip.Commands do
     |> Repo.preload([{:services, [:clothe, {:alteration, :alteration_category}]}])
   end
 
+  def for_sewer(id) do
+    query = from c in Command, where: c.sewer_id == ^id
+
+    Repo.all(query)
+    |> Repo.preload([{:services, [:clothe, {:alteration, :alteration_category}]}])
+  end
+
   @doc """
   Updates a command.
 
