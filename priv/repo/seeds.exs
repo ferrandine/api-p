@@ -33,31 +33,100 @@ admin =
     type: 0
   })
 
-quentin =
-  Repo.insert!(%User{
-    first_name: "Quentin",
-    last_name: "Michalet",
-    birthdate: ~D[1995-01-12],
-    sex: 1,
-    country: "FR",
-    city: "Paris",
-    post_code: "75000",
-    street: "01 Bd du temple",
-    type: 1
-  })
+# Customers
 
-julien =
+leila =
   Repo.insert!(%User{
-    first_name: "Julien",
-    last_name: "Furberg",
+    first_name: "Leila",
+    last_name: "Haron",
     birthdate: ~D[1995-01-12],
     sex: 1,
     country: "FR",
     city: "Paris",
-    post_code: "75000",
+    post_code: "75012",
     street: "02 rue de Rivoli",
     type: 1
   })
+
+manon =
+  Repo.insert!(%User{
+    first_name: "Manon",
+    last_name: "Louet",
+    birthdate: ~D[1995-01-12],
+    sex: 1,
+    country: "FR",
+    city: "Paris",
+    post_code: "75012",
+    street: "02 rue de Rivoli",
+    type: 1
+  })
+
+jean_paul =
+  Repo.insert!(%User{
+    first_name: "Jean Paul",
+    last_name: "Bizouarn",
+    birthdate: ~D[1995-01-12],
+    sex: 1,
+    country: "FR",
+    city: "Paris",
+    post_code: "75012",
+    street: "02 rue de Rivoli",
+    type: 1
+  })
+
+hanna =
+  Repo.insert!(%User{
+    first_name: "Hanna",
+    last_name: "Shaposhnik",
+    birthdate: ~D[1995-01-12],
+    sex: 1,
+    country: "FR",
+    city: "Paris",
+    post_code: "75012",
+    street: "02 rue de Rivoli",
+    type: 1
+  })
+
+giovanni =
+  Repo.insert!(%User{
+    first_name: "Giovanni",
+    last_name: "Naoned",
+    birthdate: ~D[1995-01-12],
+    sex: 1,
+    country: "FR",
+    city: "Paris",
+    post_code: "75012",
+    street: "02 rue de Rivoli",
+    type: 1
+  })
+
+corentin =
+  Repo.insert!(%User{
+    first_name: "Corentin",
+    last_name: "Dams",
+    birthdate: ~D[1995-01-12],
+    sex: 1,
+    country: "FR",
+    city: "Paris",
+    post_code: "75012",
+    street: "02 rue de Rivoli",
+    type: 1
+  })
+
+sandra =
+  Repo.insert!(%User{
+    first_name: "Sandra",
+    last_name: "Gouveia",
+    birthdate: ~D[1995-01-12],
+    sex: 1,
+    country: "FR",
+    city: "Paris",
+    post_code: "75012",
+    street: "02 rue de Rivoli",
+    type: 1
+  })
+
+# Sewers
 
 marie =
   Repo.insert!(%User{
@@ -312,18 +381,6 @@ Repo.insert!(%Credential{
 })
 
 Repo.insert!(%Credential{
-  user_id: julien.id,
-  email: "julien.furberg@hetic.net",
-  password: "julien"
-})
-
-Repo.insert!(%Credential{
-  user_id: quentin.id,
-  email: "quentin.michalet@hetic.net",
-  password: "quentin"
-})
-
-Repo.insert!(%Credential{
   user_id: alison.id,
   email: "alison.sayarath@hetic.net",
   password: "alison"
@@ -521,59 +578,68 @@ service_dress_commons_hem =
     value_base: 10.00
   })
 
-Repo.insert!(%Service{
-  clothe_id: clothe_dress.id,
-  alteration_id: alteration_commons_tear.id,
-  value_base: 10.00
-})
+service_dress_commons_tear =
+  Repo.insert!(%Service{
+    clothe_id: clothe_dress.id,
+    alteration_id: alteration_commons_tear.id,
+    value_base: 10.00
+  })
 
-Repo.insert!(%Service{
-  clothe_id: clothe_dress.id,
-  alteration_id: alteration_commons_seam.id,
-  value_base: 15.00
-})
+service_dress_commons_seam =
+  Repo.insert!(%Service{
+    clothe_id: clothe_dress.id,
+    alteration_id: alteration_commons_seam.id,
+    value_base: 15.00
+  })
 
-Repo.insert!(%Service{
-  clothe_id: clothe_dress.id,
-  alteration_id: alteration_shorten_sleeve.id,
-  value_base: 15.00
-})
+service_dress_shorten_sleeve =
+  Repo.insert!(%Service{
+    clothe_id: clothe_dress.id,
+    alteration_id: alteration_shorten_sleeve.id,
+    value_base: 15.00
+  })
 
-Repo.insert!(%Service{
-  clothe_id: clothe_dress.id,
-  alteration_id: alteration_shorten_waist.id,
-  value_base: 25.00
-})
+service_dress_shorten_waist =
+  Repo.insert!(%Service{
+    clothe_id: clothe_dress.id,
+    alteration_id: alteration_shorten_waist.id,
+    value_base: 25.00
+  })
 
-Repo.insert!(%Service{
-  clothe_id: clothe_dress.id,
-  alteration_id: alteration_shorten_bottom.id,
-  value_base: 20.00
-})
+service_dress_shorten_bottom =
+  Repo.insert!(%Service{
+    clothe_id: clothe_dress.id,
+    alteration_id: alteration_shorten_bottom.id,
+    value_base: 20.00
+  })
 
-Repo.insert!(%Service{
-  clothe_id: clothe_dress.id,
-  alteration_id: alteration_extend_bottom.id,
-  value_base: 30.00
-})
+service_dress_extend_bottom =
+  Repo.insert!(%Service{
+    clothe_id: clothe_dress.id,
+    alteration_id: alteration_extend_bottom.id,
+    value_base: 30.00
+  })
 
-Repo.insert!(%Service{
-  clothe_id: clothe_dress.id,
-  alteration_id: alteration_extend_sleeve.id,
-  value_base: 25.00
-})
+service_dress_extend_sleeve =
+  Repo.insert!(%Service{
+    clothe_id: clothe_dress.id,
+    alteration_id: alteration_extend_sleeve.id,
+    value_base: 25.00
+  })
 
-Repo.insert!(%Service{
-  clothe_id: clothe_dress.id,
-  alteration_id: alteration_extend_waist.id,
-  value_base: 35.00
-})
+service_dress_extend_waist =
+  Repo.insert!(%Service{
+    clothe_id: clothe_dress.id,
+    alteration_id: alteration_extend_waist.id,
+    value_base: 35.00
+  })
 
-Repo.insert!(%Service{
-  clothe_id: clothe_trouser.id,
-  alteration_id: alteration_commons_seam.id,
-  value_base: 10.00
-})
+service_trouser_commons_seam =
+  Repo.insert!(%Service{
+    clothe_id: clothe_trouser.id,
+    alteration_id: alteration_commons_seam.id,
+    value_base: 10.00
+  })
 
 service_trouser_commons_hem =
   Repo.insert!(%Service{
@@ -582,56 +648,174 @@ service_trouser_commons_hem =
     value_base: 10.00
   })
 
-Repo.insert!(%Service{
-  clothe_id: clothe_trouser.id,
-  alteration_id: alteration_commons_tear.id,
-  value_base: 15.00
-})
+service_trouser_commons_tear =
+  Repo.insert!(%Service{
+    clothe_id: clothe_trouser.id,
+    alteration_id: alteration_commons_tear.id,
+    value_base: 15.00
+  })
 
-Repo.insert!(%Service{
-  clothe_id: clothe_trouser.id,
-  alteration_id: alteration_extend_bottom.id,
-  value_base: 15.00
-})
+service_trouser_extend_bottom =
+  Repo.insert!(%Service{
+    clothe_id: clothe_trouser.id,
+    alteration_id: alteration_extend_bottom.id,
+    value_base: 15.00
+  })
 
 service_trouser_extend_waist =
+  service_trouser_extend_waist =
   Repo.insert!(%Service{
     clothe_id: clothe_trouser.id,
     alteration_id: alteration_extend_waist.id,
     value_base: 25.00
   })
 
-Repo.insert!(%Service{
-  clothe_id: clothe_trouser.id,
-  alteration_id: alteration_shorten_bottom.id,
-  value_base: 10.00
-})
+service_trouser_shorten_bottom =
+  Repo.insert!(%Service{
+    clothe_id: clothe_trouser.id,
+    alteration_id: alteration_shorten_bottom.id,
+    value_base: 10.00
+  })
 
-Repo.insert!(%Service{
-  clothe_id: clothe_trouser.id,
-  alteration_id: alteration_shorten_waist.id,
-  value_base: 30.00
-})
+service_trouser_shorten_waist =
+  Repo.insert!(%Service{
+    clothe_id: clothe_trouser.id,
+    alteration_id: alteration_shorten_waist.id,
+    value_base: 30.00
+  })
 
 # Commands
 
+{:ok, date_0, _} = DateTime.from_iso8601("2019-06-02T17:00:00+0100")
 {:ok, date_1, _} = DateTime.from_iso8601("2019-06-08T11:00:00+0100")
 {:ok, date_2, _} = DateTime.from_iso8601("2019-06-11T16:00:00+0100")
+{:ok, date_3, _} = DateTime.from_iso8601("2019-06-12T16:00:00+0100")
+{:ok, date_4, _} = DateTime.from_iso8601("2019-06-10T16:00:00+0100")
+{:ok, date_5, _} = DateTime.from_iso8601("2019-06-13T16:00:00+0100")
+{:ok, date_6, _} = DateTime.from_iso8601("2019-06-09T16:00:00+0100")
+{:ok, date_7, _} = DateTime.from_iso8601("2019-06-14T16:00:00+0100")
+{:ok, date_8, _} = DateTime.from_iso8601("2019-06-15T16:00:00+0100")
+{:ok, date_9, _} = DateTime.from_iso8601("2019-06-16T12:00:00+0100")
+{:ok, date_10, _} = DateTime.from_iso8601("2019-06-17T14:00:00+0100")
 
 command_1 =
   Repo.insert!(%Command{
     status: "placed",
     appointment_at: date_1,
-    customer_id: quentin.id,
+    customer_id: hanna.id,
     sewer_id: marie.id
   })
 
 command_2 =
   Repo.insert!(%Command{
     status: "delivered",
-    appointment_at: date_2,
-    customer_id: julien.id,
+    appointment_at: date_0,
+    customer_id: leila.id,
     sewer_id: alison.id
+  })
+
+command_3 =
+  Repo.insert!(%Command{
+    status: "approved",
+    appointment_at: date_3,
+    customer_id: manon.id,
+    sewer_id: alison.id
+  })
+
+command_4 =
+  Repo.insert!(%Command{
+    status: "placed",
+    appointment_at: date_6,
+    customer_id: jean_paul.id,
+    sewer_id: alison.id
+  })
+
+command_5 =
+  Repo.insert!(%Command{
+    status: "approved",
+    appointment_at: date_7,
+    customer_id: giovanni.id,
+    sewer_id: alison.id
+  })
+
+command_6 =
+  Repo.insert!(%Command{
+    status: "placed",
+    appointment_at: date_8,
+    customer_id: corentin.id,
+    sewer_id: lea.id
+  })
+
+command_7 =
+  Repo.insert!(%Command{
+    status: "placed",
+    appointment_at: date_9,
+    customer_id: corentin.id,
+    sewer_id: anna.id
+  })
+
+command_8 =
+  Repo.insert!(%Command{
+    status: "approved",
+    appointment_at: date_10,
+    customer_id: sandra.id,
+    sewer_id: anna.id
+  })
+
+command_9 =
+  Repo.insert!(%Command{
+    status: "placed",
+    appointment_at: date_0,
+    customer_id: jean_paul.id,
+    sewer_id: anna.id
+  })
+
+command_10 =
+  Repo.insert!(%Command{
+    status: "placed",
+    appointment_at: date_3,
+    customer_id: leila.id,
+    sewer_id: valerie.id
+  })
+
+command_11 =
+  Repo.insert!(%Command{
+    status: "placed",
+    appointment_at: date_7,
+    customer_id: hanna.id,
+    sewer_id: melanie.id
+  })
+
+command_12 =
+  Repo.insert!(%Command{
+    status: "placed",
+    appointment_at: date_4,
+    customer_id: manon.id,
+    sewer_id: melanie.id
+  })
+
+command_13 =
+  Repo.insert!(%Command{
+    status: "approved",
+    appointment_at: date_6,
+    customer_id: sandra.id,
+    sewer_id: camille.id
+  })
+
+command_14 =
+  Repo.insert!(%Command{
+    status: "delivered",
+    appointment_at: date_0,
+    customer_id: sandra.id,
+    sewer_id: annie.id
+  })
+
+command_15 =
+  Repo.insert!(%Command{
+    status: "placed",
+    appointment_at: date_3,
+    customer_id: corentin.id,
+    sewer_id: annie.id
   })
 
 Repo.insert!(%CommandService{
@@ -647,6 +831,81 @@ Repo.insert!(%CommandService{
 Repo.insert!(%CommandService{
   service_id: service_trouser_extend_waist.id,
   command_id: command_2.id
+})
+
+Repo.insert!(%CommandService{
+  service_id: service_trouser_shorten_waist.id,
+  command_id: command_3.id
+})
+
+Repo.insert!(%CommandService{
+  service_id: service_trouser_commons_seam.id,
+  command_id: command_4.id
+})
+
+Repo.insert!(%CommandService{
+  service_id: service_trouser_extend_waist.id,
+  command_id: command_5.id
+})
+
+Repo.insert!(%CommandService{
+  service_id: service_dress_shorten_sleeve.id,
+  command_id: command_5.id
+})
+
+Repo.insert!(%CommandService{
+  service_id: service_dress_commons_tear.id,
+  command_id: command_6.id
+})
+
+Repo.insert!(%CommandService{
+  service_id: service_trouser_commons_seam.id,
+  command_id: command_7.id
+})
+
+Repo.insert!(%CommandService{
+  service_id: service_trouser_commons_tear.id,
+  command_id: command_7.id
+})
+
+Repo.insert!(%CommandService{
+  service_id: service_dress_extend_bottom.id,
+  command_id: command_8.id
+})
+
+Repo.insert!(%CommandService{
+  service_id: service_trouser_shorten_bottom.id,
+  command_id: command_9.id
+})
+
+Repo.insert!(%CommandService{
+  service_id: service_trouser_extend_waist.id,
+  command_id: command_10.id
+})
+
+Repo.insert!(%CommandService{
+  service_id: service_dress_extend_sleeve.id,
+  command_id: command_11.id
+})
+
+Repo.insert!(%CommandService{
+  service_id: service_dress_commons_hem.id,
+  command_id: command_12.id
+})
+
+Repo.insert!(%CommandService{
+  service_id: service_dress_commons_seam.id,
+  command_id: command_13.id
+})
+
+Repo.insert!(%CommandService{
+  service_id: service_trouser_commons_hem.id,
+  command_id: command_14.id
+})
+
+Repo.insert!(%CommandService{
+  service_id: service_trouser_shorten_waist.id,
+  command_id: command_15.id
 })
 
 # Reviews
