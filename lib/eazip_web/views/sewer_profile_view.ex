@@ -17,6 +17,10 @@ defmodule EazipWeb.SewerProfileView do
       description: sewer_profile.description,
       first_name: sewer_profile.user.first_name,
       last_name: sewer_profile.user.last_name,
+      country: sewer_profile.user.country,
+      city: sewer_profile.user.city,
+      post_code: sewer_profile.user.post_code,
+      street: sewer_profile.user.street,
       rating:
         case sewer_profile.rating do
           nil -> nil
