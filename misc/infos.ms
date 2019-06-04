@@ -24,6 +24,8 @@ AWS EC2 for hosting
 Docker as the container engine
 .BL
 Terraform as the IAC tool
+.BL
+Cloudinary as the CDN
 .RE
 .SH 
 Version control sources URL
