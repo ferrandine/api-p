@@ -725,6 +725,30 @@ paths:
       responses:
         '204':
           description: The resource was deleted successfully.          
+  /sewers/{id}/commands:
+    parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        required: true
+    get:
+      tags:
+      - "sewer"
+      - "command"
+      summary: "Index all commands for a sewer"
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: array
+                    items:
+                      $ref: "#/components/schemas/Command"
   /users:
     get:
       tags:
